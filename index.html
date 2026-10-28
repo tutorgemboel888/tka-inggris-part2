@@ -12,7 +12,6 @@
             --primary: #007a87;
             --primary-dark: #005f69;
             --accent-yellow: #ffd700;
-            --yellow-dark: #d4ac0d;
             --bodyBg: #eef5f6;
             --postBg: #ffffff;
             --tx-100: #1a252c;
@@ -23,7 +22,7 @@
         * { box-sizing: border-box; }
         html, body { font-size: 14px; font-weight: 400; line-height: 1.6; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: var(--bodyBg); color: var(--tx-100); margin: 0; padding: 0; }
         
-        /* HEADER ATAS - IKUT SCROLL (NOT STICKY) */
+        /* HEADER ATAS */
         .site-header {
             background: #ffffff;
             border-bottom: 2px solid var(--accent-yellow);
@@ -33,50 +32,47 @@
             align-items: center;
             font-weight: 600;
             color: var(--primary);
-            position: relative; /* Tidak sticky / ikut scroll */
         }
         
-        /* BANNER HEADER KECIL & PROPORSIONAL - IKUT SCROLL */
-        .header-banner-container {
-            width: 100%;
+        /* BANNER KECIL DI HEADER (~1/8 HALAMAN) & IKUT SCROLL */
+        .header-banner-wrapper {
             background-color: var(--primary);
             text-align: center;
-            position: relative; /* Tidak sticky / ikut scroll */
-            padding: 10px 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            padding: 8px 15px;
+            border-bottom: 2px solid var(--accent-yellow);
         }
-        .header-banner-container img {
-            max-width: 800px;
-            width: 90%;
-            max-height: 130px; /* Ukuran banner kecil proporsional */
+        .header-banner-wrapper img {
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+            max-height: 90px; /* Dijamin kecil & proporsional */
             object-fit: contain;
-            display: block;
-            margin: 0 auto;
-            border-radius: 6px;
+            display: inline-block;
+            border-radius: 4px;
         }
 
+        /* PEMUTAR MUSIK BGM */
         .music-control-bar {
             background: var(--primary-dark);
             color: #ffffff;
-            padding: 8px 20px;
+            padding: 6px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            border-top: 1px solid var(--accent-yellow);
         }
         .music-btn {
             background: var(--accent-yellow);
             color: var(--primary-dark);
             border: none;
-            padding: 5px 14px;
+            padding: 4px 12px;
             border-radius: 4px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.2s;
         }
-        .music-btn:hover { background: #ffe44d; transform: scale(1.03); }
+        .music-btn:hover { background: #ffe44d; }
 
         .igniplex { max-width: 920px; margin: 20px auto; padding: 0 15px; }
         .post { background-color: var(--postBg); padding: 35px; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,122,135,0.08); border: 1px solid var(--border); }
@@ -85,6 +81,28 @@
         .wacana-box { background-color: var(--syn); border-left: 5px solid var(--primary); padding: 20px; margin: 22px 0; border-radius: 6px; font-size: 0.98rem; }
         .wacana-box h3 { color: var(--primary); margin-top: 0; }
         
+        /* STYLING GAMBAR / INFOGRAFIK PADA WACANA */
+        .wacana-img-container {
+            text-align: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        .wacana-img-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 250px;
+            border-radius: 4px;
+        }
+        .wacana-caption {
+            font-size: 0.88rem;
+            color: var(--tx-75);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
         .soal-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed var(--border); }
         .soal-item p { font-weight: 600; font-size: 1.05rem; }
         .pilihan-list { list-style-type: none; padding-left: 0; }
@@ -108,7 +126,6 @@
         .btn-reset { background-color: #d9534f; color: white; border: none; padding: 10px 22px; font-size: 0.98rem; font-weight: 600; border-radius: 6px; cursor: pointer; margin-top: 15px; display: inline-block; }
         .btn-reset:hover { background-color: #c9302c; }
         
-        /* PEMBAHASAN & KUNCI JAWABAN (OTOMATIS TAMPIL SAAT EVALUASI) */
         .kunci-box { display: none; margin-top: 12px; padding: 12px 16px; background-color: #fffde7; border: 1px solid var(--accent-yellow); border-radius: 6px; font-size: 0.92rem; color: #444; }
         .kunci-box strong { color: var(--primary); }
 
@@ -124,16 +141,18 @@
         <span style="color: var(--primary); font-weight: 700;">PKBM Kedondong Samarinda</span>
     </div>
 
-    <!-- BANNER GAMBAR & AUDIO BGM (IKUT SCROLL / PROPORSIONAL) -->
-    <div class="header-banner-container">
+    <!-- BANNER KECIL DI HEADER & IKUT SCROLL -->
+    <div class="header-banner-wrapper">
         <img src="banner.jpg" alt="Kreatif Tanpa Batas - PKBM Kedondong Samarinda" onerror="this.style.display='none'; document.getElementById('img-error-note').style.display='block';">
-        <div id="img-error-note" style="display:none; color: var(--accent-yellow); padding: 10px; font-size: 0.85rem; font-weight: bold;">
+        <div id="img-error-note" style="display:none; color: var(--accent-yellow); padding: 5px; font-size: 0.8rem; font-weight: bold;">
             ⚠️ File gambar "banner.jpg" belum terbaca di folder repository!
         </div>
-        <div class="music-control-bar">
-            <span>🎵 BGM: Jingle PKBM Kedondong Orkestra</span>
-            <button class="music-btn" id="musicToggleBtn" onclick="toggleMusic()">▶ Putar Musik</button>
-        </div>
+    </div>
+
+    <!-- PEMUTAR MUSIK BGM -->
+    <div class="music-control-bar">
+        <span>🎵 BGM: Jingle PKBM Kedondong Orkestra</span>
+        <button class="music-btn" id="musicToggleBtn" onclick="toggleMusic()">▶ Putar Musik</button>
     </div>
 
     <audio id="bgmAudio" loop>
@@ -175,6 +194,13 @@
                     <div class="wacana-box">
                         <h3>The Use of AI in the Workplace</h3>
                         <p>AI is increasingly used in various areas of life, including the workplace. While some support this development, others express concern. Below are arguments for and against the use of AI at work.</p>
+                        
+                        <!-- Infografis / Grafik Pendukung Teks 1 -->
+                        <div class="wacana-img-container">
+                            <img src="infographic-ai.png" alt="Infografis Dampak AI di Tempat Kerja" onerror="this.src='https://via.placeholder.com/600x200/007a87/ffffff?text=Infografis+AI+in+the+Workplace';">
+                            <div class="wacana-caption">Gambar 1.0: Infografis Analisis Dampak AI terhadap Efisiensi & Lapangan Kerja</div>
+                        </div>
+
                         <p>Supporters present three main points. First, efficiency and productivity. AI can handle repetitive, monotonous tasks without fatigue, allowing employees to focus on more complex and creative work. This increases output and saves time. Second, better decision-making. AI can analyze vast amounts of data quickly, identifying patterns and trends that help managers make informed, data-driven decisions. Third, learning and development. AI can enhance employee engagement by offering personalized training. AI systems can detect skill gaps and recommend tailored programs, helping employees grow.</p>
                         <p>Critics, however, raise several concerns. First, job displacement. As AI takes over tasks once handled by humans, there's growing fear of job loss. Second, lack of human touch. AI cannot replicate empathy, emotional intelligence, and human connections. Third, ethical and privacy issues regarding data use.</p>
                         <p><strong>Conclusion:</strong> AI should be used in the workplace, but with proper regulations to maximize benefits and minimize risks.</p>
@@ -222,6 +248,12 @@
                     <div class="wacana-box">
                         <h3>The Shift to Digital Payments</h3>
                         <p>In recent years, the world has seen a big change in how people pay for things. More people prefer using digital payment methods like e-wallets, mobile banking, and contactless cards. While this cashless shift brings speed and convenience, it also creates challenges for individuals without reliable internet or smartphone access.</p>
+                        
+                        <!-- Grafik Pendukung Teks 2 -->
+                        <div class="wacana-img-container">
+                            <img src="chart-digital-payment.png" alt="Grafik Statistik Penggunaan Pembayaran Digital" onerror="this.src='https://via.placeholder.com/600x200/007a87/ffffff?text=Statistik+Cashless+Society';">
+                            <div class="wacana-caption">Gambar 2.0: Grafik Perbandingan Adopsi E-Wallet & Mobile Banking</div>
+                        </div>
                     </div>
 
                     <div class="soal-item">
@@ -265,6 +297,12 @@
                     <div class="wacana-box">
                         <h3>Plastic Waste and Ocean Ecosystems</h3>
                         <p>Single-use plastics pose severe threats to marine ecosystems. Millions of tons of plastic waste end up in oceans annually, harming marine species through ingestion and entanglement. Recycling initiatives and bio-degradable alternatives are essential to mitigation.</p>
+                        
+                        <!-- Infografis Pendukung Teks 3 -->
+                        <div class="wacana-img-container">
+                            <img src="infographic-plastic.png" alt="Infografis Dampak Sampah Plastik di Laut" onerror="this.src='https://via.placeholder.com/600x200/007a87/ffffff?text=Plastic+Waste+and+Ocean+Ecosystems';">
+                            <div class="wacana-caption">Gambar 3.0: Infografis Sebaran Sampah Plastik dan Ancaman Biota Laut</div>
+                        </div>
                     </div>
 
                     <div class="soal-item">
@@ -648,12 +686,11 @@
             const nameInput = document.getElementById('participantName').value.trim();
             const resultDiv = document.getElementById('score-result');
             
-            // Hitung seluruh item soal & matriks
             const allRadios = document.querySelectorAll('input[type="radio"]');
             const uniqueNames = new Set();
             allRadios.forEach(r => uniqueNames.add(r.name));
             
-            let totalItems = uniqueNames.size; // 79 total opsi item
+            let totalItems = uniqueNames.size; 
             let correctCount = 0;
             let wrongCount = 0;
             let answeredCount = 0;
@@ -676,7 +713,7 @@
 
             let blankCount = totalItems - answeredCount;
             let totalScore = (correctCount * 4) - (wrongCount * 1);
-            let maxScore = 316; // Skor maksimal asli web (79 * 4 = 316)
+            let maxScore = 316; 
             let finalScale100 = maxScore > 0 ? ((Math.max(0, totalScore) / maxScore) * 100).toFixed(2) : "0.00";
 
             let nameDisplay = nameInput === "" ? "Oops, Lupa Isi Nama" : nameInput;
