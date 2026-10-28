@@ -25,7 +25,7 @@
         .site-header {
             background: #ffffff;
             border-bottom: 1px solid var(--border);
-            padding: 10px 20px;
+            padding: 12px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -34,27 +34,32 @@
             position: sticky;
             top: 0;
             z-index: 1001;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
+        
+        /* HEADER BANNER PROPORSIONAL (TIDAK MENUTUPI HALAMAN) */
         .header-banner-container {
             width: 100%;
-            background-color: #005a54;
+            background-color: #00423e;
             text-align: center;
             position: sticky;
             top: 51px;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
         .header-banner-container img {
-            max-width: 1000px;
+            max-width: 900px;
             width: 100%;
-            height: auto;
+            max-height: 220px; /* Membatasi tinggi agar proporsional */
+            object-fit: contain; /* Menjaga aspek rasio gambar agar tidak terpotong */
             display: block;
             margin: 0 auto;
         }
+
         .music-control-bar {
-            background: #00423e;
+            background: #00332f;
             color: white;
-            padding: 10px 20px;
+            padding: 8px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -66,7 +71,7 @@
             background: #ffffff;
             color: #00857c;
             border: none;
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 4px;
             font-weight: bold;
             cursor: pointer;
@@ -107,18 +112,17 @@
 </head>
 <body>
 
-    <!-- TOP BAR KANAN: PKBM KEDONDONG SAMARINDA -->
+    <!-- TOP BAR: PORTAL & PKBM KEDONDONG SAMARINDA -->
     <div class="site-header">
         <span style="font-size: 0.9rem; color: var(--tx-75);">Portal Latihan Mandiri Warga Belajar</span>
         <span style="color: var(--primary); font-weight: 700;">PKBM Kedondong Samarinda</span>
     </div>
 
-    <!-- BANNER GAMBAR & AUDIO BGM -->
+    <!-- BANNER GAMBAR & AUDIO BGM (PROPORSIONAL) -->
     <div class="header-banner-container">
-        <!-- Pastikan nama file gambar di folder Anda benar-benar 'banner.jpg' -->
         <img src="banner.jpg" alt="Kreatif Tanpa Batas - PKBM Kedondong Samarinda" onerror="this.style.display='none'; document.getElementById('img-error-note').style.display='block';">
-        <div id="img-error-note" style="display:none; color: #ffeb3b; padding: 15px; font-size: 0.9rem; font-weight: bold;">
-            ⚠️ Perhatian: File gambar "banner.jpg" belum terbaca atau belum di-upload di folder yang sama!
+        <div id="img-error-note" style="display:none; color: #ffeb3b; padding: 10px; font-size: 0.85rem; font-weight: bold;">
+            ⚠️ File gambar "banner.jpg" belum terbaca di folder repository!
         </div>
         <div class="music-control-bar">
             <span>🎵 BGM: Jingle PKBM Kedondong Orkestra</span>
@@ -634,7 +638,7 @@
             let finalScale100 = maxScore > 0 ? ((totalScore / maxScore) * 100).toFixed(2) : "0.00";
             if (finalScale100 < 0) finalScale100 = "0.00";
 
-            let nameDisplay = nameInput === "" ? "Oops, Lupa Isi Nama" : nameInput;
+            let nameDisplay = nameInput === "" ? "Oops, Lupe Isi Nama" : nameInput;
 
             resultDiv.style.display = "block";
             resultDiv.innerHTML = `
